@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays em JavaScript</title>
+</head>
+<body>
+    <h1>Método includes()</h1>
+    <p id="demo"></p>
+    <!-- aaaa -->
+    <script>
+        // const frutas = ["banana", "laranja", "maça", "pera", "abacate"];
+        // const frutas = ["abacate", "pera", "maça", "melancia"];
+        const frutas = [20, 100, 2, 38, -143, 1000];
+
+        // document.getElementById("demo").innerHTML = frutas.reverse();
+        document.getElementById("demo").innerHTML = frutas.sort((a, b) => b - a);
+        // => a - b ordem crescente
+        // => b - a ordem decrescente
+        
+        // document.getElementById("demo").innerHTML = frutas.sort();
+
+        // document.getElementById("demo").innerHTML = frutas.includes("banana");
+        // o ( dentro de frutas.include() vai procurar dentro do array se tal string existe, se sim mostra true se nap false)
+        //pegar a lista e botar em innerHTML (inner html é entre ><) vai botar a lista dentro do >< onde esta a id demo
+    </script>
+</body>
+</html>
