@@ -17,7 +17,7 @@ console.log(`
 
 // console.log(arr);
 
-//------------------- Metodo 1 ----------
+//------------------- Metodo 1 PUSH ----------
 
 
 // permite adicionar valores no final do array!
