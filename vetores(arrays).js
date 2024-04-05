@@ -4,13 +4,14 @@
 
 //Realizando a criação de um array:
 //    indice = 0            1         2     3
-const arr = ["Girafa", "camaleão", 'zebra', 3]
-//  11
-arr[10] = "Leão"
+// const arr = ["Girafa", "camaleão", 'zebra', 3]
+// //  11
+// arr[10] = "Leão"
 
-console.log(`
-    ${arr.length}
-`);
+// console.log(`
+//     ${arr.length}
+// `);
+//--------------------------------------------------
 
 // arr.push("qualquer coisa");
 // arr.push("Girafa")
@@ -21,45 +22,45 @@ console.log(`
 
 
 // permite adicionar valores no final do array!
-const pushArray = ['Leão', 'tartaruga', 'papagaio']
-console.log(pushArray);
+// const pushArray = ['Leão', 'tartaruga', 'papagaio']
+// console.log(pushArray);
 
-pushArray[1] = 'Borboleta'
-console.log(pushArray);
+// pushArray[1] = 'Borboleta'
+// console.log(pushArray);
 
-pushArray.push('escorpião')
-console.log(pushArray);
+// pushArray.push('escorpião')
+// console.log(pushArray);
 
-pushArray.push('dragão')
-console.log(pushArray);
+// pushArray.push('dragão')
+// console.log(pushArray);
 
-//unshift -> adicona elementos no início do array
-pushArray.unshift('Coelho')
-console.log(pushArray);
+// //unshift -> adicona elementos no início do array
+// pushArray.unshift('Coelho')
+// console.log(pushArray);
 //----------------------- Metodo 2 POP --
 
 //POP remove o último valor de um determinado array
-const popArray = ["Fernando" , 'Mara', 'Eric', 'Gabriel']
-console.log(popArray);
+// const popArray = ["Fernando" , 'Mara', 'Eric', 'Gabriel']
+// console.log(popArray);
 
-//elimina o último valor do array
-popArray.pop()
+// //elimina o último valor do array
+// popArray.pop()
 
-//remover o primeiro valor de um array ???
-popArray.shift()
+// //remover o primeiro valor de um array ???
+// popArray.shift()
 
-console.log(popArray);
+// console.log(popArray);
 
 //----------------------- Metodo 3 splice --
 //metodo splice permite selecionar um indice e remover e adicionar valores (substituição)
 //      indices   =    0      1      2      3
-const spliceArray = ['jan', 'fev', 'abr', 'jun']
-console.log(spliceArray);
+// const spliceArray = ['jan', 'fev', 'abr', 'jun']
+// console.log(spliceArray);
 
-spliceArray.splice(2, 0, 'mar')
-spliceArray.splice(4, 0, 'maio')
+// spliceArray.splice(2, 0, 'mar')
+// spliceArray.splice(4, 0, 'maio')
 
-console.log(spliceArray);
+// console.log(spliceArray);
 
 //----------------------- Metodo 4 filter --
 
@@ -82,15 +83,19 @@ console.log(spliceArray);
 
 // console.log(novoArray);
 
+//-------------------------------------------------------------------------------
+
 const filterArray = ["guilherme", "amanda", "Rogerio", "Gabrielll", "Renata"]
 console.log(filterArray);
 
 const novoArray = filterArray.filter((qualquerCoisa) => {
 
-    return qualquerCoisa == "amada" || qualquerCoisa == "guilherme"
+    return qualquerCoisa == "amanda" || qualquerCoisa == "guilherme"
 })
 
 console.log(novoArray);
+
+//----------------------------------------------------------------------------------
 
 
 //-------------------- METODO 5 MAP ---------------------------
@@ -115,7 +120,6 @@ console.log(foreachArray);
 foreachArray.forEach((nome) => { 
     console.log(nome);
 })
-
 
 
 
