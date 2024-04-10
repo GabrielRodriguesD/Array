@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gabriel Rodrigues">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let arrContacts= []
+
+        function showMenu() {
+            parseInt(prompt(`
+            
+            ----------------
+            |*----MENU----*| 
+            ----------------
+                    |
+            [1] - Cadastrar contato
+            [2] - listar contatos
+            [3] - Atualizar contato
+            [4] - eletar contato
+            [5] - Sair do programa  
+        `)
+     );  
+    }
+
+    const AddContact = () => {
+        const nameUser = prompt("Informe o nome do contato:  ");
+        const numberUser = parseInt(prompt("Informe o número do contato:  "));
+        const emailUser = prompt("Informe o email do contato:  ");
+
+        if (!nameUser || !numberUser || !emailUser ) {
+            alert("Os campos são OBRIGATÒRIOS >:( !!")
+        }
+
+        arrContacts.push({nameUser, numberUser, emailUser});
+
+        console.log(arrContacts);
+    }
+
+    AddContact();
+
+    const ListContact = () => {
+        let listContact = "";
+
+        arrContacts.forEach((dataContact)=> {
+            listContact += `
+            Nome: ${dataContact.nameUser}, Numero: ${dataUser.numberUser}, Email : ${dataUser.emailUser}`
+        });
+        //que caralhos faz o for each
+        
+        console.log(listContact);
+
+        alert("º---Lista de Contatos----º" +listContact)
+        //Arrumar n ta indo
+
+    };
+
+    ListContact();
+
+    function UpdateContactInfo() {
+        const findEmail = prompt("Informe o email que voce deseja atualizar")
+        const contatoEncontrado = arrUsers.find((user) => user.emailUser === findEmail);
+
+        if (!contatoEncontrado) {
+            alert("Usuario não foi encontrado")
+
+            return;
+        }
+
+        const novoEmail = prompt("Informe o novo Email")
+        const novoNomeContato = prompt("Informe o nome do contato")
+
+        novoEmail ? contatoEncontrado.emailUser = novoEmail : null
+
+        if (novoNomeContato) {
+            contatoEncontrado.nameUser = novoNomeContato
+        }
+        alert("Contato foi atualizado com sucesso")
+    }
+
+
+
+    </script>
+</body>
+</html>
