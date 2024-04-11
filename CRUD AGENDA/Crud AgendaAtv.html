@@ -42,11 +42,18 @@
         // const formatada= horaAtual+":"+minutos+":"+segundos
         // arryAgenda.push({nomeContato,numeroContato,emailContato,dataAtual,formatada});
 
-        const data = new Date();
+      
+        const dataAtual = new Date().toLocaleDateString();
+            const dia = new Date()
+            const horaAtual=dia.getHours();
+            const minutos=dia.getMinutes();
+            const segundos=dia.getSeconds();
+            const formatada= horaAtual+":"+minutos+":"+segundos
+        // console.log(data.toLocaleDateString("pt-BR", { timezone: "UTC"}));
         // const options = { timeZone: 'America/Sao_Paulo' };
         // const dataHoraBrasil = data.toLocaleString('pt-BR', options);
 
-        console.log(data);
+        // console.log(data);
 
             // console.log(arryAgenda);
 
@@ -58,7 +65,7 @@
         }
 
 
-        arrUsers.push({ nameUser, numberUser, emailUser, data });
+        arrUsers.push({ nameUser, numberUser, emailUser, dataAtual, formatada });
 
         console.log(arrUsers);
       };
@@ -72,7 +79,7 @@
 
         arrUsers.forEach((dataUser) => {
           listUser +=  ` 
-          Nome: ${dataUser.nameUser}, Numero: ${dataUser.numberUser} Email: ${dataUser.emailUser}, Data de Entrada: - ${dataUser.data} -}`
+          Nome: ${dataUser.nameUser}, Numero: ${dataUser.numberUser} Email: ${dataUser.emailUser}, Data de Registro: (${dataUser.dataAtual} / Horário: ${dataUser.formatada})`
         });
 
         console.log(listUser);
