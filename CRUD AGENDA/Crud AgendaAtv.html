@@ -24,55 +24,37 @@
                 [3] - Atualizar contato
                 [4] - Deletar contato
                 [5] - Sair do programa
-            `)
-        );
-      }
-
-      //Método de cadastro de usuário => (Verbo HTTP: POST)
-      const AddUser = () => {
-        const nameUser = prompt("Informe o nome da pessoa:");
-        const numberUser = prompt("Informe o número da pessoa:");
-        const emailUser = prompt("Informe o email da pessoa:");
-        //Horários ----------
-        // const dataAtual = new Date().toLocaleDateString();
-        // const dia = new Date()
-        // const horaAtual=dia.getHours();
-        // const minutos=dia.getMinutes();
-        // const segundos=dia.getSeconds();
-        // const formatada= horaAtual+":"+minutos+":"+segundos
-        // arryAgenda.push({nomeContato,numeroContato,emailContato,dataAtual,formatada});
-
+                `)
+              );
+            }
+            
+//---------------------------------------------------------- ADD USER ----------------------------------------------------
       
-        const dataAtual = new Date().toLocaleDateString();
-            const dia = new Date()
-            const horaAtual=dia.getHours();
-            const minutos=dia.getMinutes();
-            const segundos=dia.getSeconds();
-            const formatada= horaAtual+":"+minutos+":"+segundos
-        // console.log(data.toLocaleDateString("pt-BR", { timezone: "UTC"}));
-        // const options = { timeZone: 'America/Sao_Paulo' };
-        // const dataHoraBrasil = data.toLocaleString('pt-BR', options);
-
-        // console.log(data);
-
-            // console.log(arryAgenda);
-
-
-        //----------------------------------------------------------------------------------------------------
-
+      const AddUser = () => {
+      const nameUser = prompt("Informe o nome da pessoa:");
+      const numberUser = prompt("Informe o número da pessoa:");
+      const emailUser = prompt("Informe o email da pessoa:");
+//Horários --------------------------------------------------
+      const dataAtual = new Date().toLocaleDateString();
+      const dia = new Date()
+      const horaAtual=dia.getHours();
+      const minutos=dia.getMinutes();
+      const segundos=dia.getSeconds();
+      const formatada= horaAtual+":"+minutos+":"+segundos
+            
         if (!nameUser || !numberUser || !emailUser) {
           alert("Os campos são obrigatórios! ");
         }
 
 
         arrUsers.push({ nameUser, numberUser, emailUser, dataAtual, formatada });
-
+        
         console.log(arrUsers);
       };
-
-      // AddUser();
-
-      //Método de listagem de usuário => (Verbo HTTP: GET)
+      
+      
+      
+//---------------------------------------------------------- LISTUSER ----------------------------------------------------
       const ListUser = () => {
 
         let listUser = '';
@@ -87,16 +69,28 @@
         alert("*****Lista de usuários*****" + listUser);
       };
 
-      // ListUser();
+//---------------------------------------------------------- UPDATEUSERINFO ----------------------------------------------------
 
       //Método de Atualizar => (Verbo HTTP: PUT)
       function UpdateUserInfo() {
         const findName = prompt("Informe o nome do contato que você deseja atualizar!")
-        const contatoEncontrado = arrUsers.find(
-          (user) => user.nameUser === findName);
+        const findNumber = prompt("Informe o número do contato que você deseja atualizar!")
+        
+        const nomeEncontrado = arrUsers.find(
+          (user) => user.nameUser === findName,);
 
-        if (!contatoEncontrado) {
+        if (!nomeEncontrado) {
             alert("Usuário não foi encontrado!")
+
+            return;
+        }
+        //TENTATIVA UPDATE POR NUMERO
+
+        const numeroEncontrado = arrUsers.find(
+          (user) => user.numberUser === findNumber,);
+
+        if (!numeroEncontrado) {
+            alert("Não ha usuário registrado nesse número!")
 
             return;
         }
@@ -118,7 +112,7 @@
       alert("usuario foi atualizado com sucesso")
        
       }
-
+//---------------------------------------------------------- DELETE ----------------------------------------------------
       //Método para Delete => Verbo HTPP (DELETE)
       function DeleteUser() {
         const contactDelete = prompt("informe o contato a ser ***ELIMINADO!!*** C:<")
@@ -134,7 +128,7 @@
         alert("Usuario **ELIMINADO** com sucesso")
       }
 
-      // UpdateUserInfo();
+    
       let opcaoUser = true
 
       while (opcaoUser) {
