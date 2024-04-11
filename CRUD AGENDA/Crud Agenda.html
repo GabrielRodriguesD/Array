@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gabriel Rodrigues" />
+    <title>Sistema CRUD</title>
+  </head>
+  <body>
+    <script>
+      //CRIAR SISTEMA DE GERENCIAMENTO DE USUÁRIO
+
+      let arrUsers = [];
+
+      function showMenu() {
+        return parseInt(
+          prompt(`
+      
+                  ----------------      
+                  |*----MENU----*|      
+                  ----------------      
+                [1] - Cadastrar contato
+                [2] - Listar contato(s)
+                [3] - Atualizar contato
+                [4] - Deletar contato
+                [5] - Sair do programa
+            `)
+        );
+      }
+
+      //Método de cadastro de usuário => (Verbo HTTP: POST)
+      const AddUser = () => {
+        const nameUser = prompt("Informe o nome da pessoa:");
+        const numberUser = prompt("Informe o número da pessoa:");
+        const emailUser = prompt("Informe o email da pessoa:");
+        //Horários ----------
+        // const dataAtual = new Date().toLocaleDateString();
+        // const dia = new Date()
+        // const horaAtual=dia.getHours();
+        // const minutos=dia.getMinutes();
+        // const segundos=dia.getSeconds();
+        // const formatada= horaAtual+":"+minutos+":"+segundos
+        // arryAgenda.push({nomeContato,numeroContato,emailContato,dataAtual,formatada});
+
+        const data = new Date();
+        // const options = { timeZone: 'America/Sao_Paulo' };
+        // const dataHoraBrasil = data.toLocaleString('pt-BR', options);
+
+        console.log(data);
+
+            // console.log(arryAgenda);
+
+
+        //----------------------------------------------------------------------------------------------------
+
+        if (!nameUser || !numberUser || !emailUser) {
+          alert("Os campos são obrigatórios! ");
+        }
+
+
+        arrUsers.push({ nameUser, numberUser, emailUser, data });
+
+        console.log(arrUsers);
+      };
+
+      // AddUser();
+
+      //Método de listagem de usuário => (Verbo HTTP: GET)
+      const ListUser = () => {
+
+        let listUser = '';
+
+        arrUsers.forEach((dataUser) => {
+          listUser +=  ` 
+          Nome: ${dataUser.nameUser}, Numero: ${dataUser.numberUser} Email: ${dataUser.emailUser}, Data de Entrada: - ${dataUser.data} -}`
+        });
+
+        console.log(listUser);
+
+        alert("*****Lista de usuários*****" + listUser);
+      };
+
+      // ListUser();
+
+      //Método de Atualizar => (Verbo HTTP: PUT)
+      function UpdateUserInfo() {
+        const findName = prompt("Informe o nome do contato que você deseja atualizar!")
+        const contatoEncontrado = arrUsers.find(
+          (user) => user.nameUser === findName);
+
+        if (!contatoEncontrado) {
+            alert("Usuário não foi encontrado!")
+
+            return;
+        }
+
+      const novoNome = prompt("Informe novo nome caso deseje muda-lo.")
+      const novoNumero = prompt("informe o novo número do contato")
+      const novoEmail = prompt("informe o novo Email do contato")
+
+    // condição     retornado se verdadeiro
+      // novoNome ? contatoEncontrado.nameUser = novoNome : null
+      novoNome ? contatoEncontrado.nameUser = novoNome : null
+      novoNumero ? contatoEncontrado.numberUser = novoNumero : null
+      novoEmail ? contatoEncontrado.emailUser = novoEmail : null
+
+      //Desafio = fazer procurar pelo numero caso não encontre o nome
+      if (novoNome) {
+        contatoEncontrado.nameUser = novoNome
+      }
+      alert("usuario foi atualizado com sucesso")
+       
+      }
+
+      //Método para Delete => Verbo HTPP (DELETE)
+      function DeleteUser() {
+        const contactDelete = prompt("informe o contato a ser ***ELIMINADO!!*** C:<")
+        // const emailDeleteVerification = arrUsers.find(email => email.emailUser === emailDelete) tentativa 1
+        const indiceDelete = arrUsers.findIndex(name => name.nameUser === contactDelete)
+        const confirmação = window.confirm(`Voce deseja mesmo ***ELIMINAR*** o contato ${contactDelete} :O?`)
+
+        if (confirmação) {
+          // arrUsers.splice(emailDeleteVerification, 1) tentativa 1
+          arrUsers.splice(indiceDelete, 1)
+        }
+
+        alert("Usuario **ELIMINADO** com sucesso")
+      }
+
+      // UpdateUserInfo();
+      let opcaoUser = true
+
+      while (opcaoUser) {
+        
+        switch (showMenu()) {
+          case 1:
+            AddUser();
+            break;
+          case 2:
+            ListUser();
+            break;
+          case 3:
+            UpdateUserInfo();
+            break;
+          case 4:
+            DeleteUser();
+            break;
+          case 5:
+            alert("Saindo do programa, Adeus");
+            opcaoUser = false;
+            break;
+            
+            default:
+            alert("Opção inválida! Tente Novamente");
+            break;
+        }
+      }
+
+
+
+    </script>
+  </body>
+</html>
